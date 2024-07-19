@@ -1,5 +1,5 @@
 # commands
 ./init.sh
-ansible-playbook -i hosts automate.yml
-ansible-playbook -i hosts automate2.yml
+ansible-playbook automate.yml
+ansible-playbook automate2.yml
 

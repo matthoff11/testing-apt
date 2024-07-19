@@ -1,5 +1,6 @@
 - name: Replace a line in a file
-  hosts: all
+  hosts: localhost
+  connection: local
   become: yes
   tasks:
     - name: Replace the Server line in zabbix_agent2.conf
