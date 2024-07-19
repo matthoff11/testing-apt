@@ -4,12 +4,9 @@
   become: yes
   tasks:
     - name: Run unattended upgrade with timeout
-      apt:
-        upgrade: dist
-        autoremove: yes
-        update_cache: yes
-        dpkg_options:
-          - "--force-confdef"
-          - "--force-confold"
+      command: >
+        /usr/bin/apt-get dist-upgrade --yes --auto-remove
+        -o Dpkg::Options::="--force-confdef"
+        -o Dpkg::Options::="--force-confold"
       async: 600  # Maximum time the task is allowed to run (in seconds)
       poll: 5  
