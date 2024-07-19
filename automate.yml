@@ -1,0 +1,9 @@
+- name: Replace a line in a file
+  hosts: all
+  become: yes
+  tasks:
+    - name: Replace the Server line in zabbix_agent2.conf
+      lineinfile:
+        path: /etc/zabbix/zabbix_agent2.conf
+        regexp: '^LogFile='
+        line: 'LogFile=/var/log/zabbix/zabbix_agent22.log'
