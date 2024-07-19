@@ -1,0 +1,15 @@
+- name: Upgrade all packages
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Run unattended upgrade with timeout
+      apt:
+        upgrade: dist
+        autoremove: yes
+        update_cache: yes
+        dpkg_options:
+          - "--force-confdef"
+          - "--force-confold"
+      async: 600  # Maximum time the task is allowed to run (in seconds)
+      poll: 5  
